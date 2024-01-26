@@ -13,8 +13,9 @@ function App() {
 
   const fetchRecords = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/records/getAll');
+      const response = await axios.get('http://localhost:5000/records/getAll');
       setRecords(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error('Error fetching records:', error);
     }
@@ -25,7 +26,7 @@ function App() {
 
     try {
       // Send data to the backend
-      await axios.post('http://localhost:3000/records/add', {
+      await axios.post('http://localhost:5000/records/add', {
         name: name,
         phoneNumber: phoneNumber,
       });
@@ -88,7 +89,7 @@ function App() {
               <tr key={record.id} style={styles.tableRow}>
                 <td style={styles.tableCell}>{record.id}</td>
                 <td style={styles.tableCell}>{record.name}</td>
-                <td style={styles.tableCell}>{record.phoneNumber}</td>
+                <td style={styles.tableCell}>{record.phonenumber}</td>
               </tr>
             ))}
           </tbody>
